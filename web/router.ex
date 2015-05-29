@@ -18,6 +18,9 @@ defmodule Hybrid.Router do
     get "/", PageController, :index
   end
 
+  socket "/ws", Hybrid do
+    channel "agents:*", AgentChannel
+  end
   # Other scopes may use custom stacks.
   # scope "/api", Hybrid do
   #   pipe_through :api
